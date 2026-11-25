@@ -1,0 +1,43 @@
+GRK2          -> ADRBK1 (GRCh37 reference symbol)
+GRK3          -> ADRBK2 (GRCh37 reference symbol)
+PRKY          not in the GRCh37 reference
+RPS6KC1       not a catalytically active protein kinase
+RPS6KL1       not a catalytically active protein kinase
+RSKR          -> SGK494 (GRCh37 reference symbol)
+ADCK1         not a catalytically active protein kinase
+ADCK2         not a catalytically active protein kinase
+ADCK5         not a catalytically active protein kinase
+COQ8A         -> ADCK3 (GRCh37 reference symbol)
+COQ8B         -> ADCK4 (GRCh37 reference symbol)
+BAZ1A         not a catalytically active protein kinase
+ABR           not a catalytically active protein kinase
+CERT1         not in the GRCh37 reference
+STK19         not a catalytically active protein kinase
+TRRAP         not a catalytically active protein kinase
+TRIM33        not a catalytically active protein kinase
+TRIM66        not a catalytically active protein kinase
+TRIB1         not a catalytically active protein kinase
+TRIB2         not a catalytically active protein kinase
+TRIB3         not a catalytically active protein kinase
+PRPF4B        not a catalytically active protein kinase
+CILK1         -> ICK (GRCh37 reference symbol)
+HASPIN        -> GSG2 (GRCh37 reference symbol)
+POMK          already in a Golgi class
+RNASEL        not a catalytically active protein kinase
+PAN3          not a catalytically active protein kinase
+SCYL1         already in a Golgi class
+SCYL2         not a catalytically active protein kinase
+SCYL3         already in a Golgi class
+STKLD1        -> C9orf96 (GRCh37 reference symbol)
+PXK           not a catalytically active protein kinase
+ULK4          not a catalytically active protein kinase
+MAP3K14       not in the GRCh37 reference
+PAK5          -> PAK7 (GRCh37 reference symbol)
+STK26         -> MST4 (GRCh37 reference symbol)
+STRADA        not a catalytically active protein kinase
+STRADB        not a catalytically active protein kinase
+AATK          not a catalytically active protein kinase
+RYK           not a catalytically active protein kinase
+IRAK2         not a catalytically active protein kinase
+MAP3K20       not in the GRCh37 reference
+MLKL          not a catalytically active protein kinase

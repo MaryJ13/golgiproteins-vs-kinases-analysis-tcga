@@ -1,0 +1,24 @@
+DROPPED      ABO           not in the GRCh37 reference
+SUBSTITUTED  GPAT4        -> AGPAT6       (original)
+DROPPED      ARFGEF3       not in the GRCh37 reference
+SUBSTITUTED  B3GLCT       -> B3GALTL      (alias)
+SUBSTITUTED  B4GAT1       -> B3GNT1       (alias)
+SUBSTITUTED  CERT1        -> COL4A3BP     (original)
+SUBSTITUTED  DOP1A        -> DOPEY1       (alias)
+SUBSTITUTED  DOP1B        -> DOPEY2       (alias)
+SUBSTITUTED  TLCD3B       -> FAM57B       (original)
+SUBSTITUTED  POFUT3       -> FUT10        (original)
+SUBSTITUTED  POFUT4       -> FUT11        (original)
+SUBSTITUTED  GALNT17      -> WBSCR17      (alias)
+SUBSTITUTED  GPHRA        -> GPR89A       (original)
+SUBSTITUTED  LARGE1       -> LARGE        (alias)
+DROPPED      LARGE2        not in the GRCh37 reference
+DROPPED      MGAT4D        not in the GRCh37 reference
+SUBSTITUTED  PXYLP1       -> ACPL2        (alias)
+DROPPED      RAB7B         not in the GRCh37 reference
+SUBSTITUTED  RIC1         -> KIAA1432     (alias)
+DROPPED      SEC22B        not in the GRCh37 reference
+SUBSTITUTED  SLC35H1      -> SLC35C2      (original)
+SUBSTITUTED  RXYLT1       -> TMEM5        (original)
+SUBSTITUTED  TRAPPC2B     -> TRAPPC2P1    (alias)
+SUBSTITUTED  VPS26C       -> DSCR3        (alias)

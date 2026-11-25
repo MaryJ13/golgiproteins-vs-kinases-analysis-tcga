@@ -1,0 +1,13 @@
+"classe","stat","dNdS","lo","hi","p"
+"glycosyltransferase","wmis",1.036,1.004,1.068,0.0278
+"glycosyltransferase","wnon",0.9944,0.9234,1.071,0.882
+"glycosyltransferase","wall",1.031,0.9993,1.063,0.055
+"Golgi control layer","wmis",1.026,0.9944,1.06,0.106
+"Golgi control layer","wnon",1.046,0.9777,1.12,0.193
+"Golgi control layer","wall",1.023,0.9915,1.055,0.154
+"kinase","wmis",1.075,1.055,1.094,6.16e-15
+"kinase","wnon",1.147,1.105,1.192,2.8e-12
+"kinase","wall",1.075,1.056,1.095,1.82e-15
+"receptor tyrosine kinase","wmis",1.146,1.102,1.192,6.94e-12
+"receptor tyrosine kinase","wnon",1.102,1.006,1.206,0.0384
+"receptor tyrosine kinase","wall",1.135,1.092,1.18,1.03e-10

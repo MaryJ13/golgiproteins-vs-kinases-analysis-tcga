@@ -1,0 +1,11 @@
+# Python packages for the scripts in scripts/
+# Exact versions used for the shipped results: scripts/ENVIRONMENT.md
+# (the Python stages give the same numbers on any pandas 2.x/3.x).
+pandas>=2.0
+numpy>=1.26
+scipy>=1.11
+matplotlib>=3.8
+statsmodels>=0.13
+openpyxl>=3.1
+pdfplumber>=0.10
+requests>=2.31

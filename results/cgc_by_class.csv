@@ -1,0 +1,5 @@
+gene_class,n_class,n_census,n_tier1,n_tier2,n_seq,n_transloc,n_amplification,n_large_deletion
+glycosyltransferase,230,3,2,1,2,2,0,0
+Golgi control layer,269,7,5,2,0,6,1,0
+kinase,434,59,47,12,42,19,6,6
+receptor tyrosine kinase,51,24,21,3,18,12,5,0
