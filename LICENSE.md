@@ -77,12 +77,3 @@ paper's supplementary tables. The database itself must be obtained from COSMIC
 under its academic licence.
 
 ---
-
-## What to select on Zenodo
-
-Zenodo takes a single licence per record. Choose **CC BY 4.0**, which matches
-the bulk of the deposit; the MIT terms above continue to apply to `scripts/`
-and are the more permissive of the two, so nothing is lost.
-
-If your institution requires a different arrangement, this file is the place
-to change it, and the choice in the Zenodo form should be changed to match.
