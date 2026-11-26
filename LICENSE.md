@@ -56,9 +56,7 @@ be checked against the exact table used. The underlying content is the gene
 classification of Manning *et al.*, *Science* 2002; the facts it states —
 which gene belongs to which kinase group and family — are not themselves
 subject to copyright, and `source_data/kinhub_parsed.csv` contains only those
-facts. If you would rather not redistribute the PDF, delete it: everything
-downstream runs from `kinhub_parsed.csv`, and `build_kinase_lists.py` is the
-only script that needs the PDF.
+facts.
 
 **`source_data/tss.tsv`** — the TCGA tissue source site codes, a factual
 lookup table published by the GDC.
