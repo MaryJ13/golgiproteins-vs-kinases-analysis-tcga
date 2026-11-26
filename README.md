@@ -220,7 +220,7 @@ are included.
 | `run_dndscv.R` | *TP53*, *PTEN*, *FBXW7*, *KEAP1*, *NRAS* at the top of `exome_gene.csv` by `pallsubs_cv`; 145 genes at q < 0.05 among the 19,155 with at least one substitution |
 | `build_source_data.py` | **0/230, 0/269, 13/434, 6/51** |
 
-## Three traps, recorded because each cost real time
+## Known pitfalls
 
 **cBioPortal is not a substitute for the MC3 MAF.** Its API returns no
 synonymous mutations. Those are the denominator of dN/dS, so the analysis
@@ -238,26 +238,6 @@ sulfotransferases, which cannot be real. The same error applied to the
 class-level estimates turns the Golgi control layer from 1.023 (n.s.) into
 1.043 (p = 0.014) — manufacturing positive selection where there is none. Use
 `gene_list = NULL`, then `genesetdnds`.
-
-## Corrections made during preparation
-
-Recorded because the figure changed as a result, and anyone comparing an
-earlier draft should know why.
-
-- **FAM20B was in the wrong class.** Annotated `Glycosylation enzyme` in the
-  GolgiSet but assigned to the Golgi control layer. Corrected; class counts
-  became 230 and 269 where they had been 229 and 270. It sits at dN/dS 1.0006,
-  q = 0.954, so no numerator moved.
-- **Panels B and C used different denominators** — one applied the
-  "observed substitution" filter and the other did not. Both now use the
-  filtered lists.
-- **Panel D was fitted on a per-class background**, inconsistent with panels A
-  and B. Recomputed with `genesetdnds` against the exome-wide fit. Receptor
-  tyrosine kinases moved from 1.104 to 1.135 and the Golgi control layer from
-  1.043 (p = 0.014) to 1.023 (p = 0.154, n.s.).
-- **A Poisson power calculation was discarded** as anti-conservative: it
-  treats the neutral expectation as known. Replaced with a threshold
-  calibrated on the genes the analysis actually detected.
 
 ## Citation
 
