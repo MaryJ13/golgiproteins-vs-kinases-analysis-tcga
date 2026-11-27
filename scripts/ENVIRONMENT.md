@@ -8,10 +8,10 @@ them.
 | Package | Version | Used by |
 |---|---|---|
 | pandas | 3.0.5 | all the Python scripts |
-| numpy | 2.5.3 | `power2.py`, `figS1.py` |
-| scipy | 1.18.1 | `fig1_exome.py` (Jeffreys intervals) |
-| matplotlib | 3.11.2 | `fig1_exome.py`, `figS1.py` |
-| statsmodels | 0.15.0 | `power2.py`, `figS1.py` (Benjamini–Hochberg) |
+| numpy | 2.5.3 | `power2.py`, `figS2.py` |
+| scipy | 1.18.1 | `fig2_exome.py` (Jeffreys intervals) |
+| matplotlib | 3.11.2 | `fig2_exome.py`, `figS2.py` |
+| statsmodels | 0.15.0 | `power2.py`, `figS2.py` (Benjamini–Hochberg) |
 | openpyxl | 3.1.5 | `build_golgi_lists.py`, to read `GolgiSet.xlsx` |
 | pdfplumber | 0.11.10 | `build_kinase_lists.py`, to parse `KinHub.pdf` |
 | requests | 2.34.2 | `get_mc3.py` only |
@@ -64,7 +64,7 @@ would need those tables revisited and would shift the gene counts.
 
 ## R packages for the figure scripts (optional)
 
-Only `fig1_exome.R` and `figS1.R` need these; the Python figure scripts do not.
+Only `fig2_exome.R` and `figS2.R` need these; the Python figure scripts do not.
 
 | Package | Source |
 |---|---|
@@ -86,7 +86,7 @@ install.packages(c("ggplot2", "patchwork"))
 | `run_dndscv.R` | ~50 min | ~6 GB | 4 GB for `dndsout.rds` |
 | `per_type.R` | ~90 min | ~4 GB | small |
 | `build_source_data.py`, `power2.py` | seconds | small | small |
-| `fig1_exome.py`, `figS1.py` | seconds | small | small |
+| `fig2_exome.py`, `figS2.py` | seconds | small | small |
 
 8 GB of RAM is enough; 6 GB is marginal.
 
