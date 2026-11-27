@@ -161,7 +161,8 @@ Rscript run_dndscv.R           # ~50 min, ~6 GB RAM
 python assign_tumour_type.py   # -> mut_tipo.tsv, needed by per_type.R
 Rscript per_type.R             # ~90 min
 python power2.py
-python fig1_exome.py ; python figS1.py
+python fig1_exome.py
+python figS1.py
 ```
 
 **3. Rebuild everything from the original sources.** Adds the 700 MB download
@@ -251,18 +252,39 @@ and none of the 269 Golgi trafficking/control genes is among them.
 | Glycosylation enzymes | 1.031 (0.999–1.063) | 0.055 |
 
 The Golgi control layer and the glycosylation enzymes are not significant at
-p < 0.05. For a gene of typical size and mutational burden, a 2.2-fold missense
-excess would have been detected; the highest observed among the 230 is 1.95
-(*B3GNT1*, q = 0.43). Selection of 1.2–1.5-fold is not excluded. Analysed
-within single tumour types, protein kinases or RTKs reach class-level
-significance in 9 of 11 types and gene-level significance in 10 of 11; neither
-Golgi class reaches significance in any type.
+p < 0.05. The detection threshold in `power_by_gene.csv` is per gene, not a
+single number: its median by class is 1.61 for RTKs, 1.93 for kinases, 1.98 for
+the Golgi control layer and 2.22 for the glycosylation enzymes. So for a
+*glycosylation enzyme* of typical size and mutational burden a 2.2-fold missense
+excess would have been detected, and the highest observed among the 230 is 1.95
+(*B3GNT1*, q = 0.43). Selection of 1.2–1.5-fold is not excluded.
+
+The calibration is exact on the receptor tyrosine kinases — the six genes that
+clear their own threshold are the six that are in fact significant — but it is
+not exact everywhere. Five Golgi control layer genes clear their threshold
+without reaching significance (*YIPF6*, *TMED10*, *TRAPPC6A*, *GOLGA3*,
+*DENND4C*; q 0.197 to 0.686), so at the margin the empirical threshold is still
+somewhat generous, in the same direction as the Poisson calculation it replaced.
+It is a bound on what the analysis would reliably have caught, not a guarantee.
+
+Analysed within single tumour types, at least one protein kinase or RTK is
+significant at gene level in 10 of the 11 types (all but lung squamous cell
+carcinoma). At class level, protein kinases reach p < 0.05 in 5 types and RTKs
+in 4 — 9 class-level hits spread over **8 distinct types**, since both classes
+are significant in bladder urothelial carcinoma. Neither Golgi class reaches
+class-level significance in any type, and no Golgi or glycosylation gene is
+significant in any type.
 
 In the COSMIC Census, 24/51 RTKs and 59/434 kinases are listed, against 3/230
 glycosylation enzymes and 7/269 Golgi genes. The recorded mechanisms for those
 ten are translocation partner (*CLTC*, *CLTCL1*, *GOLGA5*, *GOPC*, *TRIP11*,
 *VTI1A*, *CHST11*), recessive tumour suppressor (*EXT1*, *EXT2*) and
-amplification (*GOLPH3*).
+amplification (*GOLPH3*). The assignment is by primary mechanism and the codes
+are not exclusive: *EXT1* is annotated `Mis, N, F, S, T` with role `TSG,
+fusion`, so it carries a translocation code as well and is counted here under
+its tumour-suppressor role. *EXT1* and *EXT2* are also the only two of the ten
+with any point-mutation code, and in both the point mutations are
+loss-of-function.
 
 dN/dS does not capture gene dosage: a gene that is amplified but not
 point-mutated returns dN/dS ≈ 1 (*GOLPH3*: 1.18, q = 0.885).
