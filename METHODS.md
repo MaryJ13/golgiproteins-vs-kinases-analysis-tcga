@@ -1,4 +1,4 @@
-# Methods — Figure 1 and Supplementary Figure S1
+# Methods — Figure 2 and Supplementary Figure S2
 
 Selection analysis of the glycosylation machinery, the Golgi control layer,
 protein kinases and receptor tyrosine kinases across TCGA.
