@@ -121,7 +121,7 @@ axD.set_title("D    Pooled over the class, glycosylation is indistinguishable fr
               fontsize=10,color=INK,loc="left",pad=10,fontweight="bold")
 
 fig.subplots_adjust(left=0.135,right=0.965,top=0.955,bottom=0.058)
-fig.savefig("Figure1.pdf",facecolor=SURF); fig.savefig("Figure1.png",facecolor=SURF)
+fig.savefig("Figure2.pdf",facecolor=SURF); fig.savefig("Figure2.png",facecolor=SURF)
 print("significativi esoma:",NSIG,"su",NTEST)
 for c in ORD:
     s=sub[sub.classe==c]; print(f"  {c:26s} {int((s.q<0.05).sum())}/{len(s)}")
