@@ -1,4 +1,4 @@
-# Supplementary Figure S1: R equivalent of figS1.py
+# Supplementary Figure S2: R equivalent of figS2.py
 #
 # Optional alternative to the Python script; it produces the same figure.
 # Run it from the working folder built by make_workdir.py, which already holds
@@ -6,13 +6,13 @@
 #   per_type_class.csv, genemuts.csv, exome_gene.csv,
 #   glycosyltransferase.txt, Golgi_control_layer.txt, kinase.txt,
 #   receptor_tyrosine_kinase.txt
-# From a terminal:   Rscript figS1.R
-# From RStudio:      setwd("path/to/work"); source("figS1.R")
+# From a terminal:   Rscript figS2.R
+# From RStudio:      setwd("path/to/work"); source("figS2.R")
 #
 # Packages needed (once):
 #   install.packages(c("ggplot2", "patchwork"))
 #
-# Writes FigureS1.pdf and FigureS1.png, the same file names as the Python script,
+# Writes FigureS2.pdf and FigureS2.png, the same file names as the Python script,
 # so running both in one folder overwrites the first output with the second.
 
 suppressPackageStartupMessages({
@@ -204,6 +204,6 @@ fig <- pA / pB + plot_layout(heights = c(1.15, 1)) &
 
 fig
 
-ggsave("FigureS1.pdf", fig, width = 7.2, height = 8.4, units = "in")
-ggsave("FigureS1.png", fig, width = 7.2, height = 8.4, units = "in", dpi = 220)
-cat("written FigureS1.pdf / .png\n")
+ggsave("FigureS2.pdf", fig, width = 7.2, height = 8.4, units = "in")
+ggsave("FigureS2.png", fig, width = 7.2, height = 8.4, units = "in", dpi = 220)
+cat("written FigureS2.pdf / .png\n")
