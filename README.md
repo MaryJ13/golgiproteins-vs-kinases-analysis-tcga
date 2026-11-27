@@ -6,7 +6,7 @@ Code and data for Figure 2 and Supplementary Figure S2 of:
 > **Tuning, not switching: the Golgi control layer as an analogue determinant of chemoresistance.**
 > *Bioscience Reports*, invited review (submitted 2026).
 
-Archived version: [![DOI](https://zenodo.org/badge/github/1471937071.svg)](https://doi.org/10.5281/zenodo.24597224)
+Archived version: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24597224.svg)](https://doi.org/10.5281/zenodo.24597224)
 
 Repository authors: Maria Luigia Maresca (CNR, Naples; ORCID [0009-0006-4170-2422](https://orcid.org/0009-0006-4170-2422)), Riccardo Rizzo (CNR, Lecce; ORCID [0000-0002-5716-9195](https://orcid.org/0000-0002-5716-9195)), Francesco Russo (CNR, Naples; ORCID [0000-0002-7017-8344](https://orcid.org/0000-0002-7017-8344)), Seetharaman Parashuraman (CNR, Naples; ORCID [0000-0001-5113-4592](https://orcid.org/0000-0001-5113-4592)), Domenico Russo (CNR, Naples; ORCID [0000-0003-2171-657X](https://orcid.org/0000-0003-2171-657X))
 
