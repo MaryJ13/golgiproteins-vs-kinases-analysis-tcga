@@ -9,11 +9,7 @@ Code and data for Figure 1 and Supplementary Figure S1 of:
 Archived version: 
 
 Repository authors: 
-Maria Luigia Maresca (CNR, Naples; ORCID [0009-0006-4170-2422](https://orcid.org/0009-0006-4170-2422)), 
-Riccardo Rizzo (CNR, Lecce; ORCID [0000-0002-5716-9195](https://orcid.org/0000-0002-5716-9195)), 
-Francesco Russo (CNR, Naples; ORCID [0000-0002-7017-8344](https://orcid.org/0000-0002-7017-8344)), 
-Seetharaman Parashuraman (CNR, Naples; ORCID [0000-0001-5113-4592](https://orcid.org/0000-0001-5113-4592)), 
-Domenico Russo (CNR, Naples; ORCID [0000-0003-2171-657X](https://orcid.org/0000-0003-2171-657X))
+Maria Luigia Maresca (CNR, Naples; ORCID [0009-0006-4170-2422](https://orcid.org/0009-0006-4170-2422)), Riccardo Rizzo (CNR, Lecce; ORCID [0000-0002-5716-9195](https://orcid.org/0000-0002-5716-9195)), Francesco Russo (CNR, Naples; ORCID [0000-0002-7017-8344](https://orcid.org/0000-0002-7017-8344)), Seetharaman Parashuraman (CNR, Naples; ORCID [0000-0001-5113-4592](https://orcid.org/0000-0001-5113-4592)), Domenico Russo (CNR, Naples; ORCID [0000-0003-2171-657X](https://orcid.org/0000-0003-2171-657X))
 
 ---
 
@@ -243,6 +239,36 @@ genes, which cannot be real. The same error applied to the
 class-level estimates turns the Golgi control layer from 1.023 (n.s.) into
 1.043 (p = 0.014) — manufacturing positive selection where there is none. Use
 `gene_list = NULL`, then `genesetdnds`.
+
+## Summary of results
+
+Of the 145 genes under positive selection genome-wide, 6 are receptor tyrosine
+kinases (RTK) and 13 are protein kinases. None of the 230 glycosylation enzymes
+and none of the 269 Golgi trafficking/control genes is among them.
+
+| Class | dN/dS (95% CI) | p |
+|---|---|---|
+| Receptor tyrosine kinases | 1.135 (1.092–1.180) | 1.0 × 10⁻¹⁰ |
+| Protein kinases | 1.075 (1.056–1.095) | 1.8 × 10⁻¹⁵ |
+| Golgi control layer | 1.023 (0.992–1.055) | 0.154 |
+| Glycosylation enzymes | 1.031 (0.999–1.063) | 0.055 |
+
+The Golgi control layer and the glycosylation enzymes are not significant at
+p < 0.05. For a gene of typical size and mutational burden, a 2.2-fold missense
+excess would have been detected; the highest observed among the 230 is 1.95
+(*B3GNT1*, q = 0.43). Selection of 1.2–1.5-fold is not excluded. Analysed
+within single tumour types, protein kinases or RTKs reach class-level
+significance in 9 of 11 types and gene-level significance in 10 of 11; neither
+Golgi class reaches significance in any type.
+
+In the COSMIC Census, 24/51 RTKs and 59/434 kinases are listed, against 3/230
+glycosylation enzymes and 7/269 Golgi genes. The recorded mechanisms for those
+ten are translocation partner (*CLTC*, *CLTCL1*, *GOLGA5*, *GOPC*, *TRIP11*,
+*VTI1A*, *CHST11*), recessive tumour suppressor (*EXT1*, *EXT2*) and
+amplification (*GOLPH3*).
+
+dN/dS does not capture gene dosage: a gene that is amplified but not
+point-mutated returns dN/dS ≈ 1 (*GOLPH3*: 1.18, q = 0.885).
 
 ## Citation
 
