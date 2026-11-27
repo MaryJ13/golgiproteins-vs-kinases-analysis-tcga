@@ -11,26 +11,26 @@ type: software
 version: "1.0.0"
 date-released: 2026-11-25
 authors:
-  - family-names: Russo
-    given-names: Domenico
-    affiliation: "Consiglio Nazionale delle Ricerche, Naples, Italy"
-    orcid: "https://orcid.org/0000-0003-2171-657X"
   - family-names: Maresca
     given-names: Maria Luigia
     affiliation: "Consiglio Nazionale delle Ricerche, Naples, Italy"
     orcid: "https://orcid.org/0009-0006-4170-2422"
+  - family-names: Rizzo
+    given-names: Riccardo
+    affiliation: "Consiglio Nazionale delle Ricerche, Lecce, Italy"
+    orcid: "https://orcid.org/0000-0002-5716-9195"
+  - family-names: Russo
+    given-names: Francesco
+    affiliation: "Consiglio Nazionale delle Ricerche, Naples, Italy"
+    orcid: "https://orcid.org/0000-0002-7017-8344"
   - family-names: Parashuraman
     given-names: Seetharaman
     affiliation: "Consiglio Nazionale delle Ricerche, Naples, Italy"
     orcid: "https://orcid.org/0000-0001-5113-4592"
   - family-names: Russo
-    given-names: Francesco
+    given-names: Domenico
     affiliation: "Consiglio Nazionale delle Ricerche, Naples, Italy"
-    orcid: "https://orcid.org/0000-0002-7017-8344"
-  - family-names: Rizzo
-    given-names: Riccardo
-    affiliation: "Consiglio Nazionale delle Ricerche, Lecce, Italy"
-    orcid: "https://orcid.org/0000-0002-5716-9195"
+    orcid: "https://orcid.org/0000-0003-2171-657X"
 keywords:
   - dN/dS
   - somatic selection
