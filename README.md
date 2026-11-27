@@ -2,7 +2,7 @@
 
 Code and data for Figure 1 and Supplementary Figure S1 of:
 
-> Maresca M. L., Rizzo R., Russo F.,  Parashuraman S. and Russo D.
+> M. L. Maresca, R. Rizzo, F. Russo, S. Parashuraman and D. Russo
 > **Tuning, not switching: the Golgi control layer as an analogue determinant of chemoresistance.**
 > *Bioscience Reports*, invited review (submitted 2026).
 
@@ -24,12 +24,11 @@ through dosage and organisation rather than through mutation. That is a claim
 about sequence: if these enzymes acted like oncogenes, selection would have
 left a mark on their coding sequence, as it has on the kinases.
 
-So the question is narrow and answerable. **Across ten thousand tumours, is
-there any signal of positive selection on the genes of the glycosylation
-machinery or of the Golgi control layer — searched with the method that finds
-*TP53* and *KRAS*?**
+**Across ten thousand tumours, is there any signal of positive selection on the 
+genes of the glycosylation machinery or of the Golgi control layer — searched 
+with the method that finds *TP53* and *KRAS*?**
 
-The answer is no, and the analysis here is what establishes it, together with
+The analysis here shows any signal of positive selection, together with
 the two checks that make a negative result interpretable: what effect size
 the test could have detected, and whether pooling tumour types hid anything.
 
@@ -216,7 +215,7 @@ from the middle without running what comes before it. The only stage that
 needs a file not in this deposit is `build_source_data.py`, and its outputs
 are included.
 
-**Five checkpoints.** Each failed silently at some point during development.
+**Checkpoints.**
 
 | After | Expect |
 |---|---|
@@ -231,7 +230,7 @@ are included.
 **cBioPortal is not a substitute for the MC3 MAF.** Its API returns no
 synonymous mutations. Those are the denominator of dN/dS, so the analysis
 silently yields values of 30 to 50 instead of ~1. The result is impossible
-rather than merely wrong, which is the only reason it was caught.
+rather than merely wrong.
 
 **MC3 writes chromosome X as `23`.** dNdScv expects `X`. Uncorrected, 5,937
 mutations vanish without warning, including those in *ATP7A*, *SLC35A2*,
@@ -240,7 +239,7 @@ mutations vanish without warning, including those in *ATP7A*, *SLC35A2*,
 **The background model must be fitted exome-wide.** dNdScv learns the neutral
 substitution rate from the genes it is given. Restricted to the 964 genes of
 interest it produced apparent significant *negative* selection on three
-sulfotransferases, which cannot be real. The same error applied to the
+genes, which cannot be real. The same error applied to the
 class-level estimates turns the Golgi control layer from 1.023 (n.s.) into
 1.043 (p = 0.014) — manufacturing positive selection where there is none. Use
 `gene_list = NULL`, then `genesetdnds`.
@@ -249,7 +248,7 @@ class-level estimates turns the Golgi control layer from 1.023 (n.s.) into
 
 If you use the code or the derived data, please cite both:
 
-- **Review:** Maresca M. L., Rizzo R., Russo F., Parashuraman S. and Russo D. **Tuning, not switching: the Golgi control layer as an analogue determinant of chemoresistance.**
+- **Review:** M. L. Maresca, R. Rizzo, F. Russo, S. Parashuraman and D. Russo **Tuning, not switching: the Golgi control layer as an analogue determinant of chemoresistance.**
 *Bioscience Reports*, invited review (submitted 2026). https://doi.org/10.XXXX/XXXXX
-- **This repository:** Maresca M. L., Rizzo R., Russo F., Parashuraman S. and Russo D. (2026). *golgiproteins-vs-kinases-analysis-tcga*.
+- **This repository:** M. L. Maresca, R. Rizzo, F. Russo, S. Parashuraman and D. Russo (2026). *golgiproteins-vs-kinases-analysis-tcga*.
   Zenodo. https://doi.org/10.5281/zenodo.NNNNNNN
