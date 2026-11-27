@@ -8,7 +8,7 @@ abstract: >-
   10,168 TCGA tumours, testing four gene classes for positive selection,
   with detection-power calibration and per-tumour-type stratification.
 type: software
-version: "1.0.0"
+version: "1.0.1"
 date-released: 2026-11-25
 authors:
   - family-names: Maresca
