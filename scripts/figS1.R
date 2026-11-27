@@ -12,8 +12,8 @@
 # Packages needed (once):
 #   install.packages(c("ggplot2", "patchwork"))
 #
-# Writes FigureS1.pdf and FigureS1.png. Same file names as the Python script, so running both
-# in the same folder overwrites the first output with the second.
+# Writes FigureS1.pdf and FigureS1.png, the same file names as the Python script,
+# so running both in one folder overwrites the first output with the second.
 
 suppressPackageStartupMessages({
   library(ggplot2)
