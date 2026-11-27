@@ -296,4 +296,4 @@ If you use the code or the derived data, please cite both:
 - **Review:** M. L. Maresca, R. Rizzo, F. Russo, S. Parashuraman and D. Russo **Tuning, not switching: the Golgi control layer as an analogue determinant of chemoresistance.**
 *Bioscience Reports*, invited review (submitted 2026). https://doi.org/10.XXXX/XXXXX
 - **This repository:** M. L. Maresca, R. Rizzo, F. Russo, S. Parashuraman and D. Russo (2026). *golgiproteins-vs-kinases-analysis-tcga*.
-  Zenodo. 10.5281/zenodo.24597225
+  Zenodo. 10.5281/zenodo.24597224
