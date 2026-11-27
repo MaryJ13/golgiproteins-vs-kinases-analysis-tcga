@@ -51,8 +51,8 @@ in none.
 dosage. A gene amplified in a fifth of tumours and never point-mutated returns
 a ratio of exactly 1. *GOLPH3* is the worked example: unremarkable here
 (dN/dS 1.18, q = 0.885) and nonetheless a COSMIC Census cancer gene whose only
-recorded mutation type is amplification. The absence of a sequence signal is
-the premise of the review's argument, not a failed search.
+recorded mutation type is amplification. Effects that act through gene dosage are 
+therefore outside what this analysis tests.
 
 `METHODS.md` gives the full method, with the reasoning behind each choice.
 
@@ -225,8 +225,7 @@ are included.
 
 **cBioPortal is not a substitute for the MC3 MAF.** Its API returns no
 synonymous mutations. Those are the denominator of dN/dS, so the analysis
-silently yields values of 30 to 50 instead of ~1. The result is impossible
-rather than merely wrong.
+silently yields values of 30 to 50 instead of ~1.
 
 **MC3 writes chromosome X as `23`.** dNdScv expects `X`. Uncorrected, 5,937
 mutations vanish without warning, including those in *ATP7A*, *SLC35A2*,
@@ -234,11 +233,10 @@ mutations vanish without warning, including those in *ATP7A*, *SLC35A2*,
 
 **The background model must be fitted exome-wide.** dNdScv learns the neutral
 substitution rate from the genes it is given. Restricted to the 964 genes of
-interest it produced apparent significant *negative* selection on three
-genes, which cannot be real. The same error applied to the
-class-level estimates turns the Golgi control layer from 1.023 (n.s.) into
-1.043 (p = 0.014) — manufacturing positive selection where there is none. Use
-`gene_list = NULL`, then `genesetdnds`.
+interest, it gave apparent significant *negative* selection on three genes
+(*CHST4*, *CHST6*, *GOPC*) and changed the class-level estimate of the Golgi
+control layer from 1.023 (n.s.) to 1.043 (p = 0.014). Use `gene_list = NULL`,
+then `genesetdnds`.
 
 ## Summary of results
 
