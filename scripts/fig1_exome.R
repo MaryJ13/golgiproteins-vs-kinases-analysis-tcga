@@ -20,7 +20,7 @@ suppressPackageStartupMessages({
   library(patchwork)
 })
 
-# ---- palette e stile ---------------------------------------------------
+# ---- palette and style ---------------------------------------------------
 ORD   <- c("receptor tyrosine kinase", "kinase", "Golgi control layer", "glycosyltransferase")
 COL   <- c("receptor tyrosine kinase" = "#eda100", "kinase" = "#eb6834",
            "Golgi control layer" = "#1baf7a", "glycosyltransferase" = "#2a78d6")
@@ -35,7 +35,7 @@ SHORT <- c("receptor tyrosine kinase" = "RTKs", "kinase" = "Kinases",
            "glycosyltransferase" = "Glycosylation")
 SURF <- "#fcfcfb"; INK <- "#0b0b0b"; INK2 <- "#52514e"; GRID <- "#dcdbd6"; RED <- "#c01c28"
 
-# ggplot2 >= 3.5 vuole legend.position.inside per le legende interne al grafico
+# ggplot2 >= 3.5 needs legend.position.inside for legends placed inside the plot
 legend_inside <- function(pos, just) {
   if (packageVersion("ggplot2") >= "3.5.0")
     theme(legend.position = "inside", legend.position.inside = pos,
@@ -57,8 +57,8 @@ base_theme <- theme_minimal(base_size = 8) +
         legend.text      = element_text(colour = INK, size = 8),
         legend.title     = element_blank())
 
-# ---- dati --------------------------------------------------------------
-# assegna ogni gene alla prima classe in cui compare (come setdefault in Python)
+# ---- data --------------------------------------------------------------
+# assign each gene to the first class it appears in (like setdefault in Python)
 cls <- character(0)
 for (c in ORD) {
   genes <- trimws(readLines(paste0(gsub(" ", "_", c), ".txt"), warn = FALSE))
@@ -84,14 +84,14 @@ rownames(cg) <- cg$gene_class
 NSIG  <- sum(g$qallsubs_cv < 0.05)
 NTEST <- nrow(g)
 
-# posizione verticale delle classi nei pannelli B, C e D (RTK in alto)
+# vertical position of the classes in panels B, C and D (RTK at the top)
 ypos <- setNames(rev(seq_along(ORD)), ORD)
 
-# ---- Pannello A --------------------------------------------------------
+# ---- Panel A --------------------------------------------------------
 draw_order <- c("kinase", "receptor tyrosine kinase", "Golgi control layer", "glycosyltransferase")
 subA <- sub[order(match(as.character(sub$classe), draw_order)), ]
 
-# etichette: nome, spostamento orizzontale (+ a destra, - a sinistra), verticale
+# labels: name, horizontal offset (+ right, - left), vertical offset
 lab <- data.frame(
   gene = c("BRAF", "STK11", "ATM", "MAP2K4", "MAP3K1", "EGFR", "FGFR2", "ERBB2", "AKT1", "ERBB3"),
   dx   = c(-1, 1, 1, 1, -1, 1, 1, 1, 1, -1),
@@ -128,7 +128,7 @@ pA <- ggplot(subA, aes(w, -log10(q))) +
   legend_inside(c(0.01, 0.99), c(0, 1)) +
   guides(fill = guide_legend(override.aes = list(size = 2.6, colour = NA, alpha = 1)))
 
-# ---- Pannello B --------------------------------------------------------
+# ---- Panel B --------------------------------------------------------
 bdat <- do.call(rbind, lapply(ORD, function(c) {
   s <- sub[sub$classe == c, ]; k <- sum(s$q < 0.05); n <- nrow(s)
   data.frame(classe = c, y = ypos[[c]], pct = 100 * k / n,
@@ -151,7 +151,7 @@ pB <- ggplot(bdat) +
         axis.line.x = element_line(colour = GRID, linewidth = 0.3),
         axis.text.y = element_text(size = 8.5), axis.title.x = element_text(size = 8.5))
 
-# ---- Pannello C --------------------------------------------------------
+# ---- Panel C --------------------------------------------------------
 cdat <- do.call(rbind, lapply(ORD, function(c) {
   r <- cg[c, ]; n <- r$n_class
   seq <- 100 * r$n_seq / n; oth <- 100 * (r$n_census - r$n_seq) / n
@@ -182,7 +182,7 @@ pC <- ggplot(cdat) +
         legend.key.size = unit(9, "pt")) +
   legend_inside(c(0.98, 0.03), c(1, 0))
 
-# ---- Pannello D --------------------------------------------------------
+# ---- Panel D --------------------------------------------------------
 ddat <- data.frame(classe = ORD, y = ypos[ORD],
                    dNdS = cd[ORD, "dNdS"], lo = cd[ORD, "lo"], hi = cd[ORD, "hi"], p = cd[ORD, "p"])
 ddat$lab <- paste0(sprintf("%.3f", ddat$dNdS), ifelse(ddat$p < 0.05, "", "   n.s."))
@@ -207,7 +207,7 @@ pD <- ggplot(ddat) +
         axis.line.x = element_line(colour = GRID, linewidth = 0.3),
         axis.text.y = element_text(size = 8.5))
 
-# ---- montaggio e salvataggio -------------------------------------------
+# ---- assembly and saving -------------------------------------------
 fig <- pA / (pB | pC) / pD +
   plot_layout(heights = c(1.42, 0.86, 0.74)) &
   theme(plot.background = element_rect(fill = SURF, colour = NA),
