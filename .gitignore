@@ -1,0 +1,25 @@
+# working folder built by make_workdir.py
+work/
+
+# large intermediates written by the pipeline
+dndsout.rds
+*.rds
+mut_tipo.tsv
+mutations_all.tsv.gz
+exome_filt.tsv
+per_type_genes.csv
+
+# downloads (see source_data/README.md)
+mc3*.maf.gz
+Cosmic_CancerGeneCensus*.tsv.gz
+
+# figure PNGs written by the scripts (the PDFs are kept in results/)
+*.png
+
+# editors and systems
+__pycache__/
+.Rhistory
+.RData
+.Rproj.user/
+.DS_Store
+Thumbs.db
