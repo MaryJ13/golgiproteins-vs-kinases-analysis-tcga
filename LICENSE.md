@@ -49,6 +49,6 @@ Nothing in this deposit relicenses anyone else's work. This section records the 
 
 **dndscv** -> GPL-3 licence (Martincorena et al., Cell 2017). Not included in this deposit; scripts/ENVIRONMENT.md gives the installation from its own repository at the commit used.
 
-**COSMIC Cancer Gene Census** -> not included; it is distributed by COSMIC under its own licence (https://cancer.sanger.ac.uk/cosmic). results/Figure1_source_data.csv and results/cgc_by_class.csv contain derived annotation (tier, role in cancer, mutation-type codes) for the 984 genes in the four gene classes.
+**COSMIC Cancer Gene Census** -> not included; it is distributed by COSMIC under its own licence (https://cancer.sanger.ac.uk/cosmic). results/Figure2_source_data.csv and results/cgc_by_class.csv contain derived annotation (tier, role in cancer, mutation-type codes) for the 984 genes in the four gene classes.
 
 ---
