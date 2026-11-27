@@ -12,8 +12,8 @@
 # Packages needed (once):
 #   install.packages(c("ggplot2", "patchwork"))
 #
-# Writes Figure1.pdf and Figure1.png. Same file names as the Python script, so running both
-# in the same folder overwrites the first output with the second.
+# Writes Figure1.pdf and Figure1.png, the same file names as the Python script, 
+# so running both in the same folder overwrites the first output with the second.
 
 suppressPackageStartupMessages({
   library(ggplot2)
@@ -132,7 +132,7 @@ pA <- ggplot(subA, aes(w, -log10(q))) +
 bdat <- do.call(rbind, lapply(ORD, function(c) {
   s <- sub[sub$classe == c, ]; k <- sum(s$q < 0.05); n <- nrow(s)
   data.frame(classe = c, y = ypos[[c]], pct = 100 * k / n,
-             lo = 100 * qbeta(0.025, k + 0.5, n - k + 0.5),   # intervallo di Jeffreys
+             lo = 100 * qbeta(0.025, k + 0.5, n - k + 0.5),   # Jeffreys interval
              hi = 100 * qbeta(0.975, k + 0.5, n - k + 0.5),
              lab = sprintf("%d/%d", k, n))
 }))
