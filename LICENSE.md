@@ -30,48 +30,25 @@ Everything in `scripts/` (Python, R and the helper scripts) and
 ## Data and documentation — CC BY 4.0
 
 `README.md`, `METHODS.md`, everything in `results/` and `supplementary/`,
-and `GolgiSet.xlsx`.
+and `source_data/GolgiSet.xlsx`.
 
 Creative Commons Attribution 4.0 International:
-<https://creativecommons.org/licenses/by/4.0/>. Use it for anything, including
-commercially, provided you credit the source.
+<https://creativecommons.org/licenses/by/4.0/>. Reuse, including commercial reuse, is permitted with attribution.
 
 ---
 
-## Third-party material, and why it is compatible
+## Third-party material
 
-Nothing here relicenses anyone else's work. This section records what came
-from elsewhere and on what terms.
+Nothing in this deposit relicenses anyone else's work. This section records the source of each third-party item and the terms attached to it by its source.
 
-**`source_data/exome_filt.tsv.gz`** — derived from the TCGA MC3 public call set,
-which is open-access TCGA data. The NIH Genomic Data Sharing policy places no
-restriction on redistributing open-access TCGA data; the expectation is
-citation, which the README and the paper provide. Nothing in it identifies a
-participant: it carries anonymised tumour barcodes, genomic coordinates and
-alleles.
+**`source_data/exome_filt.tsv.gz`** -> derived from the TCGA MC3 public call set (mc3.v0.2.8.PUBLIC.maf.gz, open-access data from the NCI Genomic Data Commons; Ellrott et al., Cell Systems 2018). It contains anonymised tumour barcodes, genomic coordinates and alleles.
 
-**`source_data/KinHub.pdf`** — the Manning kinome table as published at
-kinhub.org, saved on 9 November 2026 and included unmodified so the parse can
-be checked against the exact table used. The underlying content is the gene
-classification of Manning *et al.*, *Science* 2002; the facts it states —
-which gene belongs to which kinase group and family — are not themselves
-subject to copyright, and `source_data/kinhub_parsed.csv` contains only those
-facts.
+**`source_data/KinHub.pdf`** -> the kinome table published at kinhub.org (http://www.kinhub.org/kinases.html), saved on 9 November 2026 and included unmodified so that the parse can be checked against the table used. The classification is that of Manning et al., Science 2002. source_data/kinhub_parsed.csv contains the gene symbols with their group and family. build_kinase_lists.py is the only script that reads the PDF; everything downstream runs from kinhub_parsed.csv.
 
-**`source_data/tss.tsv`** — the TCGA tissue source site codes, a factual
-lookup table published by the GDC.
+**`source_data/tss.tsv`** -> the TCGA tissue source site codes, from the GDC code tables (https://gdc.cancer.gov/resources-tcga-users/tcga-code-tables).
 
-**dndscv** — GPL-3, by Inigo Martincorena at the Wellcome Sanger Institute.
-It is **not** redistributed here; `ENVIRONMENT.md` says how to install it from
-its own repository at a pinned commit. GPL-3 therefore does not propagate to
-this deposit: calling a GPL program from a separately distributed script does
-not make that script a derivative work, and no dndscv code is included.
+**dndscv** -> GPL-3 licence (Martincorena et al., Cell 2017). Not included in this deposit; scripts/ENVIRONMENT.md gives the installation from its own repository at the commit used.
 
-**COSMIC Cancer Gene Census** — not redistributed, by licence. Only derived
-annotation for the 984 genes in the gene classes appears, in
-`results/Figure1_source_data.csv` and `results/cgc_by_class.csv`: the tier,
-role and mutation-type codes for those genes, the same values published in the
-paper's supplementary tables. The database itself must be obtained from COSMIC
-under its academic licence.
+**COSMIC Cancer Gene Census** -> not included; it is distributed by COSMIC under its own licence (https://cancer.sanger.ac.uk/cosmic). results/Figure1_source_data.csv and results/cgc_by_class.csv contain derived annotation (tier, role in cancer, mutation-type codes) for the 984 genes in the four gene classes.
 
 ---
