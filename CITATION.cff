@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this code or the derived data, please cite the review and this deposit."
 title: "Selection analysis of the glycosylation machinery and the Golgi control layer across TCGA"
 abstract: >-
-  Code and derived data behind Figure 1 and Supplementary Figure S1 of
+  Code and derived data behind Figure 2 and Supplementary Figure S2 of
   "Tuning, not switching: the Golgi control layer as an analogue determinant
   of chemoresistance". dN/dS analysis of 2,096,036 somatic substitutions from
   10,168 TCGA tumours, testing four gene classes for positive selection,
