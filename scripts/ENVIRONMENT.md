@@ -88,8 +88,7 @@ install.packages(c("ggplot2", "patchwork"))
 | `build_source_data.py`, `power2.py` | seconds | small | small |
 | `fig1_exome.py`, `figS1.py` | seconds | small | small |
 
-8 GB of RAM is enough; 6 GB is marginal. An early attempt ran out of memory at
-6.1 GB because the hypermutated tumours had not yet been removed.
+8 GB of RAM is enough; 6 GB is marginal.
 
 `run_dndscv.R` writes `dndsout.rds`, about 4 GB, so that a mistake in the
 class step does not mean paying 50 minutes for the main run again. Delete it
