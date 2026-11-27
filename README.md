@@ -1,12 +1,12 @@
 # Is the glycosylation machinery under positive selection in cancer?
 
-Code and data for Figure 1 and Supplementary Figure S1 of:
+Code and data for Figure 2 and Supplementary Figure S2 of:
 
 > M. L. Maresca, R. Rizzo, F. Russo, S. Parashuraman and D. Russo
 > **Tuning, not switching: the Golgi control layer as an analogue determinant of chemoresistance.**
 > *Bioscience Reports*, invited review (submitted 2026).
 
-Archived version: 
+Archived version: [![DOI](https://zenodo.org/badge/github/1471937071.svg)](https://doi.org/10.5281/zenodo.24597224)
 
 Repository authors: Maria Luigia Maresca (CNR, Naples; ORCID [0009-0006-4170-2422](https://orcid.org/0009-0006-4170-2422)), Riccardo Rizzo (CNR, Lecce; ORCID [0000-0002-5716-9195](https://orcid.org/0000-0002-5716-9195)), Francesco Russo (CNR, Naples; ORCID [0000-0002-7017-8344](https://orcid.org/0000-0002-7017-8344)), Seetharaman Parashuraman (CNR, Naples; ORCID [0000-0001-5113-4592](https://orcid.org/0000-0001-5113-4592)), Domenico Russo (CNR, Naples; ORCID [0000-0003-2171-657X](https://orcid.org/0000-0003-2171-657X))
 
@@ -102,19 +102,19 @@ checked without rerunning anything.
 
 | File | What it holds |
 |---|---|
-| `Figure1_source_data.csv` | **open this first** — the 984 class genes, with counts, dN/dS, q and Census annotation |
+| `Figure2_source_data.csv` | **open this first** — the 984 class genes, with counts, dN/dS, q and Census annotation |
 | `exome_gene.csv` | dNdScv output for all 20,091 reference genes, unfiltered |
-| `exome_class_dnds.csv` | pooled dN/dS per class, pan-cancer (Figure 1D) |
+| `exome_class_dnds.csv` | pooled dN/dS per class, pan-cancer (Figure 2D) |
 | `exome_globaldnds.csv` | pooled dN/dS over the whole exome |
 | `genemuts.csv` | per-gene expected counts under neutrality; the input to the power calibration |
-| `cgc_by_class.csv` | Cancer Gene Census counts by class and mechanism (Figure 1C) |
-| `power_by_gene.csv` | per-gene detection threshold against observed dN/dS (Figure S1B) |
-| `per_type_class.csv` | pooled dN/dS per class within each tumour type (Figure S1A) |
+| `cgc_by_class.csv` | Cancer Gene Census counts by class and mechanism (Figure 2C) |
+| `power_by_gene.csv` | per-gene detection threshold against observed dN/dS (Figure S2B) |
+| `per_type_class.csv` | pooled dN/dS per class within each tumour type (Figure S2A) |
 | `per_type_genes.csv.gz` | the full per-gene dNdScv output for each of the 11 tumour types; the evidence behind "no Golgi or glycosylation gene is significant in any single type" |
 | `glycosyltransferase.txt`, `Golgi_control_layer.txt`, `kinase.txt`, `receptor_tyrosine_kinase.txt` | the four gene classes as used |
 | `golgi_lists_log.txt`, `kinase_lists_log.txt` | every symbol substitution and every gene dropped, with the reason |
 | `hypermutators.txt` | the 126 MSI and POLE tumours removed, with their substitution counts |
-| `Figure1.pdf`, `FigureS1.pdf` | the figures as the scripts produced them |
+| `Figure2.pdf`, `FigureS2.pdf` | the figures as the scripts produced them |
 
 ### `supplementary/`
 
@@ -139,8 +139,8 @@ python check_inputs.py     # verifies checksums, says what you can run
 **1. Redraw the figures.** No downloads, seconds.
 
 ```bash
-python fig1_exome.py      # -> Figure1.pdf
-python figS1.py           # -> FigureS1.pdf
+python fig2_exome.py      # -> Figure2.pdf
+python figS2.py           # -> FigureS2.pdf
 ```
 
 The same two figures can be drawn in R instead (needs `ggplot2` and
@@ -148,8 +148,8 @@ The same two figures can be drawn in R instead (needs `ggplot2` and
 the other in a given working folder):
 
 ```bash
-Rscript fig1_exome.R      # -> Figure1.pdf, Figure1.png
-Rscript figS1.R           # -> FigureS1.pdf, FigureS1.png
+Rscript fig2_exome.R      # -> Figure2.pdf, Figure2.png
+Rscript figS2.R           # -> FigureS2.pdf, FigureS2.png
 ```
 
 **2. Reanalyse from the filtered mutation table.** Still no downloads: this is
@@ -161,8 +161,8 @@ Rscript run_dndscv.R           # ~50 min, ~6 GB RAM
 python assign_tumour_type.py   # -> mut_tipo.tsv, needed by per_type.R
 Rscript per_type.R             # ~90 min
 python power2.py
-python fig1_exome.py
-python figS1.py
+python fig2_exome.py
+python figS2.py
 ```
 
 **3. Rebuild everything from the original sources.** Adds the 700 MB download
@@ -182,7 +182,7 @@ python build_source_data.py exome_gene.csv Cosmic_CancerGeneCensus_v104_GRCh37.t
 python assign_tumour_type.py
 Rscript per_type.R
 python power2.py
-python fig1_exome.py ; python figS1.py
+python fig2_exome.py ; python figS2.py
 ```
 
 Versions, install commands and per-step time and memory are in
@@ -204,7 +204,7 @@ while its code has.
 | `per_type.R` | `mut_tipo.tsv`, class lists | `per_type_*.csv` *(included)* |
 | `build_source_data.py` | `exome_gene.csv`, **COSMIC** | `Figure1_source_data.csv`, `cgc_by_class.csv` *(included)* |
 | `power2.py` | `genemuts.csv`, `exome_gene.csv` | `power_by_gene.csv` *(included)* |
-| `fig1_exome.py`, `figS1.py` | the CSVs above | the two figures |
+| `fig2_exome.py`, `figS2.py` | the CSVs above | the two figures |
 
 Everything marked *(included)* is in `results/`, so any stage can be entered
 from the middle without running what comes before it. The only stage that
@@ -296,4 +296,4 @@ If you use the code or the derived data, please cite both:
 - **Review:** M. L. Maresca, R. Rizzo, F. Russo, S. Parashuraman and D. Russo **Tuning, not switching: the Golgi control layer as an analogue determinant of chemoresistance.**
 *Bioscience Reports*, invited review (submitted 2026). https://doi.org/10.XXXX/XXXXX
 - **This repository:** M. L. Maresca, R. Rizzo, F. Russo, S. Parashuraman and D. Russo (2026). *golgiproteins-vs-kinases-analysis-tcga*.
-  Zenodo. https://doi.org/10.5281/zenodo.NNNNNNN
+  Zenodo. 10.5281/zenodo.24597225
