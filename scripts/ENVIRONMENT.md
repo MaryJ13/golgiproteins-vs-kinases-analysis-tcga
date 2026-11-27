@@ -48,9 +48,6 @@ remotes::install_github("im3sanger/dndscv",
                         ref = "43c5e2f1beaaf3ac26df9c046b281ceb0edbfff7")
 ```
 
-`remotes` rather than `devtools`: it is far lighter and is all that is needed
-to install from GitHub.
-
 **This part is version-sensitive, and the pin matters.** dndscv's version
 string has been `0.0.1.0` since 2019 while the code has continued to change —
 the commit above is dated 25 August 2026 and adds a `tryCatch` around the
