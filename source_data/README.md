@@ -85,7 +85,7 @@ that can drift from the canonical one.
 **Needed only to rebuild `exome_filt.tsv` from scratch.** That file is already
 here, so for every other purpose this download is optional.
 
-**Do not substitute cBioPortal.** its API returns no synonymous mutations, which are
+**Do not substitute cBioPortal.** Its API returns no synonymous mutations, which are
 the denominator of dN/dS, and an analysis built on it gives dN/dS values of 30
 to 50 instead of about 1.
 
