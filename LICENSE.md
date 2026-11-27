@@ -7,7 +7,7 @@ Two licences, because this deposit holds two different kinds of thing.
 Everything in `scripts/` (Python, R and the helper scripts) and
 `make_workdir.py`.
 
-> Copyright (c) 2026 Domenico Russo, Consiglio Nazionale delle Ricerche
+> Copyright (c) 2026 Maresca Maria Luigia, Rizzo Riccardo, Russo Francesco, Parashuraman Seetharaman and Russo Domenico, Consiglio Nazionale delle Ricerche
 >
 > Permission is hereby granted, free of charge, to any person obtaining a copy
 > of this software and associated documentation files (the "Software"), to deal
