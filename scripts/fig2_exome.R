@@ -1,4 +1,4 @@
-# Figure 1: R equivalent of fig1_exome.py
+# Figure 2: R equivalent of fig2_exome.py
 #
 # Optional alternative to the Python script; it produces the same figure.
 # Run it from the working folder built by make_workdir.py, which already holds
@@ -6,13 +6,13 @@
 #   glycosyltransferase.txt, Golgi_control_layer.txt, kinase.txt,
 #   receptor_tyrosine_kinase.txt, exome_gene.csv, exome_class_dnds.csv,
 #   cgc_by_class.csv
-# From a terminal:   Rscript fig1_exome.R
-# From RStudio:      setwd("path/to/work"); source("fig1_exome.R")
+# From a terminal:   Rscript fig2_exome.R
+# From RStudio:      setwd("path/to/work"); source("fig2_exome.R")
 #
 # Packages needed (once):
 #   install.packages(c("ggplot2", "patchwork"))
 #
-# Writes Figure1.pdf and Figure1.png, the same file names as the Python script, 
+# Writes Figure2.pdf and Figure2.png, the same file names as the Python script, 
 # so running both in the same folder overwrites the first output with the second.
 
 suppressPackageStartupMessages({
@@ -215,8 +215,8 @@ fig <- pA / (pB | pC) / pD +
 
 fig
 
-ggsave("Figure1.pdf", fig, width = 7.2, height = 10.2, units = "in", bg = SURF)
-ggsave("Figure1.png", fig, width = 7.2, height = 10.2, units = "in", dpi = 300, bg = SURF)
+ggsave("Figure2.pdf", fig, width = 7.2, height = 10.2, units = "in", bg = SURF)
+ggsave("Figure2.png", fig, width = 7.2, height = 10.2, units = "in", dpi = 300, bg = SURF)
 
 cat("significativi esoma:", NSIG, "su", NTEST, "\n")
 for (c in ORD) {
