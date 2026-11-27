@@ -21,7 +21,7 @@ import hashlib
 import os
 
 ATTESI = {
-    # file                              md5                                  cosa e'
+    # file                              md5                                  what it is
     "GolgiSet.xlsx":        ("454daef9da6884b509738f6723bfefc1", "curated Golgi gene set (included)"),
     "KinHub.pdf":           ("3dd2b0fe28d8b6f98d0ba4c3bb4ceb28", "the kinome as parsed (included)"),
     "exome_filt.tsv":       ("d5e929031280510a816232705a8c5a4d", "filtered substitutions, ready for dNdScv (included, gzipped)"),
