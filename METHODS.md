@@ -111,7 +111,7 @@ genes, **434** protein kinases, **51** receptor tyrosine kinases.
 
 ## 4. Selection analysis
 
-dN/dS was estimated with dNdScv 0.1.0 (Martincorena et al., *Cell* 2017)
+dN/dS was estimated with dNdScv 0.0.1.0 (Martincorena et al., *Cell* 2017)
 against its bundled GRCh37 coding reference, under R 4.3.3. dNdScv models
 substitution rates with a 192-parameter trinucleotide context model and
 regresses synonymous counts on gene-level covariates (expression,
@@ -129,27 +129,20 @@ reached only after two other designs produced artefacts:
 | One run, class genes only | those 964 genes | 4/225 | 2/264 | 31/424 | 7/51 |
 | **One run, whole exome** | **19,155 genes** | **0/230** | **0/269** | **13/434** | **6/51** |
 
-Under the second design three sulfotransferases reached significance with
-dN/dS *below* 1 — *CHST4* at 0.55 (q = 0.015), *CHST6* at 0.79 (q = 0.050),
-*GOPC* at 0.85 (q = 0.010) — that is, apparent significant negative selection
-across ten thousand tumours. That cannot be real, and it is the signature of
-a background model learned from a functionally related, non-random set of
-genes. Under the exome-wide fit all three fall away (q = 0.21, 0.36, 0.23).
+Under the second design three genes reached significance with dN/dS below 1: CHST4 at 0.55 
+(q = 0.015), CHST6 at 0.79 (q = 0.050) and GOPC at 0.85 (q = 0.010), i.e. apparent negative
+selection. This pattern is consistent with a background model learned from a functionally
+related, non-random set of genes. Under the exome-wide fit none of the three is significant 
+(q = 0.21, 0.36, 0.23).
 
 Multiple testing was controlled by Benjamini–Hochberg across all 19,155
-tested genes (`qallsubs_cv`), not within each class. This is the conservative
-choice and the reason *KIT* and *PDGFRA*, both established drivers, do not
-reach significance here: the threshold the glycosylation enzymes fail to
-clear is the same one *KIT* fails to clear.
+tested genes (`qallsubs_cv`), not within each class. Under this threshold 
+the established drivers KIT and PDGFRA do not reach significance either.
 
 Class-level pooled estimates (panel D) were obtained with `genesetdnds`
 against that **same** exome-wide fit — one call per class — so that all four
-panels share one background. Note that passing `gene_list` to `dndscv()`
-instead would subset the coding reference before annotation and estimate each
-class's substitution model from its own mutations alone; doing so changes the
-Golgi control layer from 1.023 (p = 0.154) to 1.043 (p = 0.014), i.e. it
-manufactures significant positive selection where there is none. `genesetdnds`
-requires `outmats = TRUE` on the parent run.
+panels share one background. Passing `gene_list` to `dndscv()`
+instead subsets the coding reference before annotation and estimates each class's substitution model from its own mutations alone; this changes the Golgi control layer from 1.023 (p = 0.154) to 1.043 (p = 0.014). `genesetdnds` requires `outmats = TRUE` on the parent run.
 
 ## 5. Cancer Gene Census
 
@@ -203,11 +196,10 @@ p value, its twelve most significant genes are *TP53*, *PTEN*, *FBXW7*,
 (*KRAS* dN/dS 26.5, *NRAS* 24.4, *TP53* 15.2, *PIK3CA* 12.2, *BRAF* 10.5).
 Thirty-six genes reach q = 0 to machine precision, so the ordering among the
 very top is arbitrary and should not be read as a ranking. 145 genes of the
-19,155 carrying at least one substitution reach q < 0.05, the usual yield for
-this analysis on TCGA.
+19,155 carrying at least one substitution reach q < 0.05.
 
 Independent re-execution of the full pipeline from the downloaded MAF
-reproduced `exome_gene.csv` byte for byte and the global dN/dS estimates to
+reproduced `exome_gene.csv` and the global dN/dS estimates to
 the last reported digit.
 
 ## 8. Detection power
@@ -226,11 +218,11 @@ count lies within a factor of 1.3 of its own.
 The calibration is checked on the receptor tyrosine kinases, where it predicts
 exactly the six genes that are in fact significant.
 
-A Poisson power calculation was tried first and discarded. It treats the
-neutral expectation as known, whereas dNdScv fits it by negative binomial
-regression whose dispersion adds real uncertainty, and it was visibly
-anti-conservative: five non-significant genes sat above its threshold. The
-empirical calibration has no such failure.
+A Poisson power calculation was not used. It treats the neutral expectation
+as known, whereas dNdScv fits it by negative binomial regression whose
+dispersion adds uncertainty; applied here it placed five non-significant genes
+above its threshold. The empirical calibration makes no distributional
+assumption.
 
 Median thresholds: 1.61 for receptor tyrosine kinases, 1.93 for protein
 kinases, 1.98 for the Golgi control layer, 2.22 for glycosylation enzymes.
