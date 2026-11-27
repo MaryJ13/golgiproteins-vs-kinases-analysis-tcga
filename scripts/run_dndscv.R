@@ -31,8 +31,8 @@ cat("mutations:", nrow(mut), " samples:", length(unique(mut$sampleID)), "\n")
 # from whatever genes it is given. Restricting it to the 964 genes of
 # interest makes it learn a baseline from a functionally related,
 # non-random set, which produced significant *negative* selection on
-# three sulfotransferases -- a result that cannot be real. Fitting across
-# all genes and applying the class labels afterwards removes it.
+# three genes (CHST4, CHST6, GOPC). Fitting across all genes and 
+# applying the class labels afterwards removes it.
 dnds <- dndscv(mut,
                gene_list = NULL,
                max_muts_per_gene_per_sample = 3,
