@@ -8,8 +8,7 @@ Code and data for Figure 1 and Supplementary Figure S1 of:
 
 Archived version: 
 
-Repository authors: 
-Maria Luigia Maresca (CNR, Naples; ORCID [0009-0006-4170-2422](https://orcid.org/0009-0006-4170-2422)), Riccardo Rizzo (CNR, Lecce; ORCID [0000-0002-5716-9195](https://orcid.org/0000-0002-5716-9195)), Francesco Russo (CNR, Naples; ORCID [0000-0002-7017-8344](https://orcid.org/0000-0002-7017-8344)), Seetharaman Parashuraman (CNR, Naples; ORCID [0000-0001-5113-4592](https://orcid.org/0000-0001-5113-4592)), Domenico Russo (CNR, Naples; ORCID [0000-0003-2171-657X](https://orcid.org/0000-0003-2171-657X))
+Repository authors: Maria Luigia Maresca (CNR, Naples; ORCID [0009-0006-4170-2422](https://orcid.org/0009-0006-4170-2422)), Riccardo Rizzo (CNR, Lecce; ORCID [0000-0002-5716-9195](https://orcid.org/0000-0002-5716-9195)), Francesco Russo (CNR, Naples; ORCID [0000-0002-7017-8344](https://orcid.org/0000-0002-7017-8344)), Seetharaman Parashuraman (CNR, Naples; ORCID [0000-0001-5113-4592](https://orcid.org/0000-0001-5113-4592)), Domenico Russo (CNR, Naples; ORCID [0000-0003-2171-657X](https://orcid.org/0000-0003-2171-657X))
 
 ---
 
