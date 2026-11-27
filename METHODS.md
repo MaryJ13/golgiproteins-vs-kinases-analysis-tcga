@@ -1,12 +1,9 @@
-# Methods — Figure 1
+# Methods — Figure 1 and Supplementary Figure S1
 
 Selection analysis of the glycosylation machinery, the Golgi control layer,
 protein kinases and receptor tyrosine kinases across TCGA.
 
-Written as a Methods section: what was done, in order, with the parameters
-and the reasons. The prose walkthrough *How Figure 1 Was Made* gives the same
-material as an argument rather than a procedure, and *Figure 1 — Data
-Provenance and Computational Pipeline* gives the row-by-row audit trail.
+What was done, in order, with the parameters and the reasons.
 
 ---
 
@@ -15,8 +12,8 @@ Provenance and Computational Pipeline* gives the row-by-row audit trail.
 The question is whether the glycosylation machinery shows evidence of
 positive selection in cancer genomes, as protein kinases do.
 
-The direct approach — comparing the proportion of tumours carrying a mutation
-in each class — cannot answer it. Mutation frequency scales with coding
+The direct approach, comparing the proportion of tumours carrying a mutation
+in each class, cannot answer it. Mutation frequency scales with coding
 length, and the classes differ systematically in length: the median protein
 kinase has 1,860 coding bases and the longest, TTN, has 108,000, while
 glycosyltransferases have a median of 1,332 and none above 3,800. Run that
@@ -259,69 +256,6 @@ with the reduced sample size.
 This analysis is less powered than the pooled one, by construction. Its
 purpose is not to find weaker signals but to catch a signal that pooling would
 have hidden, which it would show as a strong effect in one type.
-
-## 10. Results
-
-Of the 145 genes under positive selection genome-wide, 6 are receptor
-tyrosine kinases and 13 are protein kinases. **None is a glycosylation enzyme
-and none is a Golgi trafficking or control gene** (0/230 and 0/269).
-
-Pooled over each class:
-
-| Class | dN/dS (95% CI) | p |
-|---|---|---|
-| Receptor tyrosine kinases | 1.135 (1.092–1.180) | 1.0 × 10⁻¹⁰ |
-| Protein kinases | 1.075 (1.056–1.095) | 1.8 × 10⁻¹⁵ |
-| Golgi control layer | 1.023 (0.992–1.055) | 0.154, n.s. |
-| Glycosylation enzymes | 1.031 (0.999–1.063) | 0.055, n.s. |
-
-At the typical size and mutational burden of a glycosylation enzyme, a
-2.2-fold missense excess would have been detected. The highest observed among
-the 230 is 1.95 (*B3GNT1*, q = 0.43), and no gene in either Golgi class
-reaches its own threshold. The analysis therefore excludes oncogene-like
-selection — kinase drivers run from dN/dS 2 to 26 — but does not exclude weak
-selection of 1.2 to 1.5 fold. Five Golgi control layer genes sit close to the
-boundary and none is significant: *YIPF6*, *TMED10*, *TRAPPC6A*, *GOLGA3* and
-*DENND4C*, with q from 0.32 to 0.64.
-
-Analysed within single tumour types, protein kinases or receptor tyrosine
-kinases reach class-level significance in 9 of the 11 types and gene-level
-significance in 10 of 11. Neither Golgi class reaches significance in any
-type, at either level.
-
-In the Census, 24/51 receptor tyrosine kinases and 59/434 kinases are listed,
-against 3/230 glycosylation enzymes and 7/269 Golgi genes. The mechanism
-recorded for those ten is decisive: *CLTC*, *CLTCL1*, *GOLGA5*, *GOPC*,
-*TRIP11*, *VTI1A* and *CHST11* are translocation partners, contributing a
-promoter or dimerisation domain to fusions whose oncogenic activity resides
-in the partner kinase; *EXT1* and *EXT2* are recessive tumour suppressors
-(hereditary multiple exostoses), where point mutation destroys function;
-*GOLPH3* carries amplification as its only recorded mutation type. **None is
-a dominantly acting oncogene driven by activating point mutation.**
-
-## 11. Interpretation, and its limit
-
-The glycosylation machinery shows no signal of positive selection when
-examined with the method that identifies *TP53* and *KRAS* in the same ten
-thousand tumours.
-
-The limit of this must be stated whenever the result is presented: **dN/dS is
-blind to gene dosage.** A gene amplified in a fifth of tumours and never
-point-mutated returns dN/dS of exactly 1. *GOLPH3* is the illustration — 1.18
-with q = 0.885 in this analysis, indistinguishable from the cloud, and
-nonetheless a Census cancer gene whose only recorded mechanism is
-amplification, one of just 41 of 768 Census genes so annotated.
-
-The absence in panels A, B and D is therefore not a negative result to be
-explained away. It is the premise: were the phenotype digital, selection
-would have marked the sequence, and it has not. The question moves to dosage,
-subcellular position, and the organisation the Golgi imposes on these enzymes.
-
-One qualification for honest reporting: the glycosylation class sits at
-p = 0.055, just the wrong side of the conventional threshold. The correct
-phrase is "indistinguishable from neutral", not "neutral". The unambiguous
-claim — that no individual glycosylation enzyme is a point-mutation driver —
-rests on panels A and B.
 
 ---
 
