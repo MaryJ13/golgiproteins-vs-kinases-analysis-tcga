@@ -2,13 +2,9 @@
 """
 power2.py — detectable effect size, calibrated on the analysis itself.
 
-power.py computed the Poisson power of the test. It is anti-conservative:
-it treats the neutral expectation as known, whereas dNdScv fits it with a
-negative binomial whose dispersion adds real uncertainty. Five glycosylation
-genes cleared that Poisson threshold and none is significant, which is the
-proof that the approximation is too generous.
-
-This version makes no distributional assumption. It reads the detection
+A Poisson power calculation would treat the neutral expectation as known,
+whereas dNdScv fits it with a negative binomial whose dispersion adds real
+uncertainty. This script makes no distributional assumption instead. It reads the detection
 boundary off the 20,091 genes that were actually tested: for a gene with a
 given neutral expectation, it asks what missense dN/dS genes of comparable
 expectation actually needed in order to reach significance.
