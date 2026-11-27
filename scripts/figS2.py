@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Supplementary Figure S1: tumour-type stratification and detection power."""
+"""Supplementary Figure S2: tumour-type stratification and detection power."""
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -131,6 +131,6 @@ ax.text(.012, .022,
         "Shaded: the detectable region. No glycosylation enzyme enters it; the highest is B3GNT1 at 1.95 (q = 0.43).",
         transform=ax.transAxes, fontsize=6.6, color="#555555", va="bottom")
 
-fig.savefig("FigureS1.pdf")
-fig.savefig("FigureS1.png", dpi=220)
-print("written FigureS1.pdf / .png")
+fig.savefig("FigureS2.pdf")
+fig.savefig("FigureS2.png", dpi=220)
+print("written FigureS2.pdf / .png")
