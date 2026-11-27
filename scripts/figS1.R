@@ -20,7 +20,7 @@ suppressPackageStartupMessages({
   library(patchwork)
 })
 
-# ---- palette e stile ---------------------------------------------------
+# ---- palette and style ---------------------------------------------------
 ORD   <- c("receptor tyrosine kinase", "kinase", "Golgi control layer", "glycosyltransferase")
 COL   <- c("receptor tyrosine kinase" = "#eda100", "kinase" = "#eb6834",
            "Golgi control layer" = "#1baf7a", "glycosyltransferase" = "#2a78d6")
@@ -40,7 +40,7 @@ AB <- c("Skin Cutaneous Melanoma" = "SKCM", "Lung adenocarcinoma" = "LUAD",
         "Liver hepatocellular carcinoma" = "LIHC")
 NOTE <- "#555555"
 
-# ggplot2 >= 3.5 vuole legend.position.inside per le legende interne al grafico
+# ggplot2 >= 3.5 needs legend.position.inside for legends placed inside the plot
 legend_inside <- function(pos, just) {
   if (packageVersion("ggplot2") >= "3.5.0")
     theme(legend.position = "inside", legend.position.inside = pos,
@@ -63,18 +63,18 @@ base_theme <- theme_classic(base_size = 8) +
         plot.caption = element_text(size = 6.6, colour = NOTE, hjust = 0),
         plot.caption.position = "panel")
 
-# ---- Pannello A --------------------------------------------------------
+# ---- Panel A --------------------------------------------------------
 cc <- read.csv("per_type_class.csv", stringsAsFactors = FALSE)
 w  <- cc[cc$stat == "wall", ]
 
-# tipi di tumore ordinati per dN/dS delle chinasi, dal più alto (in alto)
+# tumour types ordered by kinase dN/dS, highest at the top
 wk   <- w[w$classe == "kinase", ]
 tipi <- wk$tipo[order(-wk$dNdS)]
 OFF  <- setNames(c(0.27, 0.09, -0.09, -0.27), ORD)
 
 w <- w[w$tipo %in% tipi & w$classe %in% ORD, ]
 w$i      <- match(w$tipo, tipi) - 1
-w$y      <- (length(tipi) - 1 - w$i) - OFF[w$classe]   # stesso ordine dell'asse invertito in Python
+w$y      <- (length(tipi) - 1 - w$i) - OFF[w$classe]   # same order as the inverted axis in Python
 w$sig    <- ifelse(w$p < 0.05, "p < 0.05", "n.s.")
 w$stroke <- ifelse(w$p < 0.05, 0.55, 0)
 w$size   <- ifelse(w$p < 0.05, 1.9, 1.55)
@@ -82,7 +82,7 @@ w$classe <- factor(w$classe, levels = ORD)
 
 pA <- ggplot(w) +
   geom_vline(xintercept = 1, colour = "#888888", linewidth = 0.45, linetype = "dashed")
-for (cl in ORD) {   # un livello per classe, così il colore delle barre è fisso
+for (cl in ORD) {   # one level per class, so the bar colour stays fixed
   pA <- pA + geom_segment(data = w[w$classe == cl, ],
                           aes(x = lo, xend = hi, y = y, yend = y),
                           colour = COL[[cl]], linewidth = 0.6, alpha = 0.85)
@@ -118,7 +118,7 @@ pA <- pA +
         legend.margin = ggplot2::margin(0, 0, 0, 0),
         legend.key.width = grid::unit(10, "pt"))
 
-# ---- Pannello B --------------------------------------------------------
+# ---- Panel B --------------------------------------------------------
 gm  <- read.csv("genemuts.csv", stringsAsFactors = FALSE)
 sel <- read.csv("exome_gene.csv", stringsAsFactors = FALSE)
 d <- merge(gm, sel[, c("gene_name", "wmis_cv", "pmis_cv", "qallsubs_cv")], by = "gene_name")
@@ -128,23 +128,23 @@ d$qmis <- p.adjust(pm, method = "BH")        # = multipletests(..., "fdr_bh")
 det <- d[d$qmis < 0.05 & d$wmis_cv > 1, ]
 det <- det[order(det$exp_mis), ]
 
-# confine empirico di rilevamento: minimo dN/dS rilevato in una finestra mobile
+# empirical detection boundary: minimum dN/dS detected in a moving window
 xs <- 10^seq(log10(min(det$exp_mis)), log10(max(det$exp_mis)), length.out = 60)
 ys <- sapply(xs, function(x) {
   v <- det$wmis_cv[det$exp_mis >= x / 1.6 & det$exp_mis <= x * 1.6]
   if (length(v)) min(v) else NA
 })
-fill_na <- function(v) {                     # ffill poi bfill, come in pandas
+fill_na <- function(v) {                     # forward-fill then back-fill, as in pandas
   for (k in seq_along(v)[-1]) if (is.na(v[k])) v[k] <- v[k - 1]
   for (k in rev(seq_along(v))[-1]) if (is.na(v[k])) v[k] <- v[k + 1]
   v
 }
 ys <- fill_na(ys)
-ys <- sapply(seq_along(ys), function(k)      # media mobile centrata, finestra 7
+ys <- sapply(seq_along(ys), function(k)      # centred moving average, window of 7
   mean(ys[max(1, k - 3):min(length(ys), k + 3)]))
 bound <- data.frame(x = xs, y = ys)
 
-# classi: in caso di gene in più file vale l'ultimo letto (come il dict Python)
+# classes: if a gene is in several files, the last one read wins (like the Python dict)
 classi <- character(0)
 for (cfile in c("glycosyltransferase", "Golgi_control_layer", "kinase",
                 "receptor_tyrosine_kinase")) {
@@ -156,7 +156,7 @@ d$ntot <- rowSums(d[, c("n_syn", "n_mis", "n_non", "n_spl")])
 cl <- d[!is.na(d$classe) & d$ntot > 0, ]
 cl$wplot <- pmin(pmax(cl$wmis_cv, 0.3), 30)
 cl$classe <- factor(cl$classe, levels = ORD)
-cl <- cl[order(cl$classe), ]                  # disegna nell'ordine ORD
+cl <- cl[order(cl$classe), ]                  # draw in the order of ORD
 
 labB <- cl[cl$gene_name %in% c("BRAF", "EGFR", "FGFR2", "B3GNT1", "YIPF6"), ]
 labB$ylab <- pmin(labB$wmis_cv, 30)
@@ -198,7 +198,7 @@ pB <- ggplot() +
         legend.key.size = grid::unit(9, "pt")) +
   legend_inside(c(0.99, 0.99), c(1, 1))
 
-# ---- montaggio e salvataggio -------------------------------------------
+# ---- assembly and saving -----------------------------------------------
 fig <- pA / pB + plot_layout(heights = c(1.15, 1)) &
   theme(plot.margin = ggplot2::margin(6, 10, 6, 6))
 
